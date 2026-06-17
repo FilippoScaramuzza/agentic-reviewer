@@ -30,7 +30,14 @@ Every review session produces a **timestamped report directory** with all artifa
    pip install "markitdown[all]"
    ```
 
-3. Configure an LLM provider in OpenCode (run `/connect` in the TUI).
+3. Install [pandoc](https://pandoc.org/installing.html) and a LaTeX engine for PDF report generation:
+   ```bash
+   # macOS
+   brew install pandoc
+   brew install --cask mactex
+   ```
+
+4. Configure an LLM provider in OpenCode (run `/connect` in the TUI).
 
 ### Run a Review
 
@@ -75,7 +82,7 @@ Phase 2: Review            Scope Reviewer ─┐
                            Statistics Reviewer ─┤
                            Ethics Reviewer ─┘
     ↓
-Phase 3: Compilation       Report Compiler → final report
+Phase 3: Compilation       Report Compiler → Markdown report + PDF (pandoc)
 ```
 
 ## Report Structure
@@ -94,7 +101,8 @@ reports/<journal-slug>/<YYYY-MM-DD-HHMMSS>/
 ├── 07-writing-style-review.md     # Writing & style review
 ├── 08-statistics-review.md        # Statistics review
 ├── 09-ethics-review.md            # Ethics review
-└── 10-final-review-report.md      # Compiled final report
+├── 10-final-review-report.md      # Compiled final report (Markdown)
+└── 10-final-review-report.pdf     # Compiled final report (PDF)
 ```
 
 ## Agents
@@ -112,7 +120,7 @@ reports/<journal-slug>/<YYYY-MM-DD-HHMMSS>/
 | Writing & Style Reviewer | Checks writing quality and content structure | Review |
 | Statistics Reviewer | Evaluates statistical rigor | Review |
 | Ethics Reviewer | Checks ethical compliance | Review |
-| Report Compiler | Merges all reviews into final report | Compilation |
+| Report Compiler | Merges all reviews into final report (Markdown + PDF) | Compilation |
 
 ## Project Structure
 

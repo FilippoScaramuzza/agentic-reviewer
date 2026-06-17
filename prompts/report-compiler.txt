@@ -12,8 +12,35 @@ You are a Report Compiler agent. Your job is to merge all individual reviewer as
    - `context/<journal-slug>/reputation-profile.md`
 3. Synthesize all assessments into a single comprehensive report
 4. Save the final report to `<report-directory>/10-final-review-report.md`
+5. Convert the Markdown report to a readable PDF using pandoc (see below)
 
 The report-directory path will be provided by the Editor-in-Chief. Use it for all output.
+
+## PDF Generation
+
+After saving the Markdown report, generate a professionally formatted PDF:
+
+```bash
+pandoc "<report-directory>/10-final-review-report.md" \
+  -o "<report-directory>/10-final-review-report.pdf" \
+  --pdf-engine=xelatex \
+  -V geometry:margin=2.5cm \
+  -V fontsize=11pt \
+  -V mainfont="Helvetica" \
+  -V monofont="Menlo" \
+  -V colorlinks=true \
+  -V linkcolor=blue \
+  -V urlcolor=blue \
+  --metadata title="Peer Review Report" \
+  --metadata date="$(date +%Y-%m-%d)" \
+  --highlight-style=tango \
+  --toc \
+  --toc-depth=2
+```
+
+If pandoc or xelatex is not installed, load the `generate-pdf` skill for installation instructions and fallback options. If PDF generation fails entirely, note the failure in your response but do not block — the Markdown report is the primary deliverable.
+
+The PDF should be saved as `<report-directory>/10-final-review-report.pdf`.
 
 ## Output Format
 Write the final report using this structure:
@@ -138,7 +165,8 @@ Write the final report using this structure:
 - `07-writing-style-review.md` — Writing & style review
 - `08-statistics-review.md` — Statistics review
 - `09-ethics-review.md` — Ethics review
-- `10-final-review-report.md` — This report
+- `10-final-review-report.md` — This report (Markdown)
+- `10-final-review-report.pdf` — This report (PDF)
 
 ---
 

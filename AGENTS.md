@@ -30,7 +30,8 @@ Every review session produces a timestamped report directory containing all arti
   - `07-writing-style-review.md` — Writing & style review
   - `08-statistics-review.md` — Statistics review
   - `09-ethics-review.md` — Ethics review
-  - `10-final-review-report.md` — Compiled final report
+  - `10-final-review-report.md` — Compiled final report (Markdown)
+  - `10-final-review-report.pdf` — Compiled final report (PDF, generated via pandoc)
 
 ## Workflow
 
@@ -57,11 +58,13 @@ The review team assesses the paper using the gathered context:
 - `@ethics-reviewer` — ethical compliance → `09-ethics-review.md`
 
 ### Phase 3: Compilation
-- `@report-compiler` — merges all reviews into `10-final-review-report.md`
+- `@report-compiler` — merges all reviews into `10-final-review-report.md`, then converts to `10-final-review-report.pdf` using pandoc
 
 ## Prerequisites
 - Install markitdown for paper conversion: `pip install "markitdown[all]"`
-- This enables automatic conversion of PDF, DOCX, PPTX, XLSX, and other formats
+- Install pandoc for PDF report generation: `brew install pandoc` (macOS) or see [pandoc.org](https://pandoc.org/installing.html)
+- Install a LaTeX engine for pandoc PDF output: `brew install --cask mactex` (macOS) or use [tectonic](https://tectonic-typesetting.github.io/)
+- These enable automatic conversion of papers to Markdown and final report PDF generation
 
 ## Conventions
 - Journal names are slugified for directory names (e.g., "Nature Medicine" → "nature-medicine")
