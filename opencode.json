@@ -1,0 +1,167 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "edit": "allow",
+    "bash": "allow",
+    "webfetch": "allow",
+    "websearch": "allow"
+  },
+  "agent": {
+    "editor-in-chief": {
+      "mode": "primary",
+      "description": "Orchestrates the journal paper review pipeline. First delegates exploration agents to gather journal context, then delegates review agents to assess the paper, then delegates report compilation.",
+      "prompt": "{file:./prompts/editor-in-chief.txt}",
+      "permission": {
+        "edit": "deny",
+        "bash": "allow",
+        "task": {
+          "*": "deny",
+          "paper-converter": "allow",
+          "scope-explorer": "allow",
+          "recent-papers-explorer": "allow",
+          "style-guide-explorer": "allow",
+          "reputation-explorer": "allow",
+          "scope-reviewer": "allow",
+          "methodology-reviewer": "allow",
+          "writing-style-reviewer": "allow",
+          "statistics-reviewer": "allow",
+          "ethics-reviewer": "allow",
+          "report-compiler": "allow"
+        }
+      },
+      "color": "primary"
+    },
+    "scope-explorer": {
+      "mode": "subagent",
+      "description": "Explores a journal's aims, scope, and acceptance criteria by searching the web and reading the journal's website.",
+      "prompt": "{file:./prompts/scope-explorer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "task": "deny"
+      },
+      "color": "#4A90D9"
+    },
+    "recent-papers-explorer": {
+      "mode": "subagent",
+      "description": "Fetches and analyzes recent papers from a journal to identify patterns in topics, methodology, structure, and citation practices.",
+      "prompt": "{file:./prompts/recent-papers-explorer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "task": "deny"
+      },
+      "color": "#7B68EE"
+    },
+    "style-guide-explorer": {
+      "mode": "subagent",
+      "description": "Extracts formatting and style requirements from journal author guidelines.",
+      "prompt": "{file:./prompts/style-guide-explorer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "task": "deny"
+      },
+      "color": "#20B2AA"
+    },
+    "reputation-explorer": {
+      "mode": "subagent",
+      "description": "Profiles a journal's reputation, impact factor, indexing status, editorial board, and acceptance rates.",
+      "prompt": "{file:./prompts/reputation-explorer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "task": "deny"
+      },
+      "color": "#DAA520"
+    },
+    "scope-reviewer": {
+      "mode": "subagent",
+      "description": "Reviews paper-journal fit based on scope, aims, and alignment with recent publications.",
+      "prompt": "{file:./prompts/scope-reviewer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      },
+      "color": "#4A90D9"
+    },
+    "methodology-reviewer": {
+      "mode": "subagent",
+      "description": "Evaluates research design, methods, validity, and rigor of a paper's methodology.",
+      "prompt": "{file:./prompts/methodology-reviewer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      },
+      "color": "#7B68EE"
+    },
+    "writing-style-reviewer": {
+      "mode": "subagent",
+      "description": "Reviews writing quality, clarity, structure, and journal formatting compliance.",
+      "prompt": "{file:./prompts/writing-style-reviewer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny",
+        "webfetch": "allow"
+      },
+      "color": "#20B2AA"
+    },
+    "statistics-reviewer": {
+      "mode": "subagent",
+      "description": "Evaluates statistical methods, analysis rigor, data presentation, and reproducibility.",
+      "prompt": "{file:./prompts/statistics-reviewer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      },
+      "color": "#DAA520"
+    },
+    "ethics-reviewer": {
+      "mode": "subagent",
+      "description": "Checks ethical compliance including IRB, informed consent, conflicts of interest, and data availability.",
+      "prompt": "{file:./prompts/ethics-reviewer.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      },
+      "color": "#CD5C5C"
+    },
+    "report-compiler": {
+      "mode": "subagent",
+      "description": "Compiles all reviewer assessments into a final structured review report with ratings and recommendation.",
+      "prompt": "{file:./prompts/report-compiler.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny"
+      },
+      "color": "#2E8B57"
+    },
+    "paper-converter": {
+      "mode": "subagent",
+      "description": "Converts non-Markdown paper files (PDF, DOCX, PPTX, etc.) to Markdown using markitdown.",
+      "prompt": "{file:./prompts/paper-converter.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "task": "deny",
+        "webfetch": "deny",
+        "websearch": "deny"
+      },
+      "color": "#FF8C00"
+    }
+  }
+}
