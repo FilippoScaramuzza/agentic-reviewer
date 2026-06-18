@@ -1,0 +1,4 @@
+# Un-ignore papers/ for OpenCode @ file search (ripgrep)
+# Files stay gitignored (private) but become visible in autocomplete
+!papers/
+!papers/**
