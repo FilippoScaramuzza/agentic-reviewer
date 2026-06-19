@@ -16,7 +16,7 @@ Every review session produces a timestamped report directory containing all arti
   - `recent-papers-analysis.md`
   - `style-guide.md`
   - `reputation-profile.md`
-  - `recent-papers/` — Downloaded full-text papers (PDFs + converted Markdown)
+  - `recent-papers/` — Downloaded full-text papers (auto-generated at runtime)
     - `<slugified-title>.pdf` — Downloaded paper PDFs
     - `<slugified-title>.md` — Markitdown-converted versions
 - `reports/<journal-slug>/<YYYY-MM-DD-HHMMSS>/` — Timestamped report directory (auto-generated)
@@ -61,9 +61,11 @@ The review team assesses the paper using the gathered context:
 - `@report-compiler` — merges all reviews into `10-final-review-report.md`, then converts to `10-final-review-report.pdf` using pandoc
 
 ## Prerequisites
+- Install [OpenCode](https://opencode.ai): `curl -fsSL https://opencode.ai/install | bash`
+- Configure an LLM provider in OpenCode (run `/connect` in the TUI)
 - Install markitdown for paper conversion: `pip install "markitdown[all]"`
 - Install pandoc for PDF report generation: `brew install pandoc` (macOS) or see [pandoc.org](https://pandoc.org/installing.html)
-- Install a LaTeX engine for pandoc PDF output: `brew install --cask mactex` (macOS) or use [tectonic](https://tectonic-typesetting.github.io/)
+- Install a LaTeX engine for pandoc PDF output: `brew install --cask mactex` (macOS) or use [Tectonic](https://tectonic-typesetting.github.io/)
 - These enable automatic conversion of papers to Markdown and final report PDF generation
 
 ## Conventions
@@ -72,6 +74,7 @@ The review team assesses the paper using the gathered context:
 - Always read `context/<journal-slug>/` files before reviewing a paper
 - Each review agent writes its individual assessment to the numbered file in the report directory
 - All agents have bash access for tool execution capabilities
+- The `.ignore` file un-ignores `papers/` for OpenCode's `@` file search while keeping papers gitignored (private)
 - Use the "re-explore" keyword to force refreshing journal context
 
 ## How to Use
@@ -86,4 +89,4 @@ Exploration results are cached per journal in `context/<journal-slug>/`. If you'
 Downloaded full-text papers are stored in `context/<journal-slug>/recent-papers/` as both PDFs and converted Markdown files. The recent-papers-explorer reads the complete papers — not just abstracts and metadata.
 
 ## Agent Permissions
-All agents have bash access enabled for tool execution. The exploration agents also have webfetch/websearch access. The exploration context is saved to both the cache directory and the timestamped report directory.
+All agents have bash access enabled for tool execution. Only exploration agents have webfetch/websearch access (others are denied). Editor-in-Chief orchestrates via task delegation. The exploration context is saved to both the cache directory and the timestamped report directory.

@@ -36,4 +36,5 @@ Systematically gather and document a journal's scope, aims, and acceptance crite
 - Cross-check scope statements across multiple pages for consistency
 
 ## Output Location
-Save to `context/<journal-slug>/scope-and-criteria.md`
+Save to `context/<journal-slug>/scope-and-criteria.md` (cache)
+AND `<report-directory>/01-scope-and-criteria.md` (session artifact)

@@ -9,7 +9,8 @@ The paper you are reviewing is in Markdown format. It was either originally writ
 ## Your Task
 1. Read the paper file provided by the user
 2. Read `context/<journal-slug>/style-guide.md` for the journal's content and structural requirements
-3. Evaluate the paper across the following dimensions
+3. Read `context/<journal-slug>/recent-papers-analysis.md` for observed writing conventions (tone, level of detail, figure/table patterns) from actual papers in this venue
+4. Evaluate the paper across the following dimensions
 
 ## Assessment Dimensions
 - **Clarity & Readability**: Is the writing clear, concise, and accessible to the target audience?

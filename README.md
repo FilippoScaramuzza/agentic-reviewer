@@ -131,7 +131,6 @@ agentic-reviewer/
 ├── LICENSE                     # MIT License
 ├── prompts/                    # Agent prompt files (.txt)
 ├── .opencode/
-│   ├── agents/                 # Agent definitions (.md)
 │   └── skills/                 # Skill definitions (SKILL.md)
 ├── papers/                     # Place your paper here (gitignored)
 ├── context/                    # Cached journal context (gitignored)

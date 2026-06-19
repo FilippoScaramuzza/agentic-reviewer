@@ -77,4 +77,5 @@ Check and document whether the journal is indexed in:
 - If the journal is a conference, adjust the assessment framework accordingly
 
 ## Output Location
-Save to `context/<journal-slug>/reputation-profile.md`
+Save to `context/<journal-slug>/reputation-profile.md` (cache)
+AND `<report-directory>/04-reputation-profile.md` (session artifact)

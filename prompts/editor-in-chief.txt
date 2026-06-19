@@ -18,7 +18,8 @@ reports/<journal-slug>/<YYYY-MM-DD-HHMMSS>/
 ├── 07-writing-style-review.md   # From @writing-style-reviewer
 ├── 08-statistics-review.md      # From @statistics-reviewer
 ├── 09-ethics-review.md          # From @ethics-reviewer
-└── 10-final-review-report.md   # From @report-compiler
+├── 10-final-review-report.md   # From @report-compiler (Markdown)
+└── 10-final-review-report.pdf  # From @report-compiler (PDF, pandoc)
 ```
 
 The timestamp format is `YYYY-MM-DD-HHMMSS` (e.g., `2025-01-15-143022`).

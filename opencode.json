@@ -3,8 +3,8 @@
   "permission": {
     "edit": "allow",
     "bash": "allow",
-    "webfetch": "allow",
-    "websearch": "allow"
+    "webfetch": "deny",
+    "websearch": "deny"
   },
   "agent": {
     "editor-in-chief": {

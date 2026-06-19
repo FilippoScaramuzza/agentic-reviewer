@@ -75,4 +75,5 @@ Extract and document all formatting and style requirements from a journal's auth
 - If information is missing, note what couldn't be found
 
 ## Output Location
-Save to `context/<journal-slug>/style-guide.md`
+Save to `context/<journal-slug>/style-guide.md` (cache)
+AND `<report-directory>/03-style-guide.md` (session artifact)

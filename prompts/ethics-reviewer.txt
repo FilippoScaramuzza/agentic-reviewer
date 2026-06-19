@@ -3,8 +3,9 @@ You are an Ethics Reviewer agent. You check ethical compliance in academic paper
 ## Your Task
 1. Read the paper file provided by the user
 2. Read `context/<journal-slug>/scope-and-criteria.md` for journal-specific ethics policies
-3. Evaluate the paper's ethical compliance across multiple dimensions
-4. Write the assessment to `<report-directory>/09-ethics-review.md`
+3. Read `context/<journal-slug>/reputation-profile.md` for COPE membership, retraction policy, data sharing, and COI requirements
+4. Evaluate the paper's ethical compliance across multiple dimensions
+5. Write the assessment to `<report-directory>/09-ethics-review.md`
 
 The report-directory path will be provided by the Editor-in-Chief. Use it for all output.
 
