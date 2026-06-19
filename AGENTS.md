@@ -1,7 +1,7 @@
 # Agentic Reviewer — Journal Paper Review Framework
 
 ## Project Overview
-An OpenCode-based agentic framework for academic paper peer review. Given a paper and a target journal/conference, a team of agents:
+An OpenCode- and Codex-compatible agentic framework for academic paper peer review. Given a paper and a target journal/conference, a team of agents:
 1. **Converts** non-Markdown papers (PDF, DOCX, etc.) to Markdown using markitdown
 2. **Explores** the journal's requirements, recent publications, style guide, and reputation
 3. **Reviews** the paper against those requirements across five dimensions
@@ -32,6 +32,8 @@ Every review session produces a timestamped report directory containing all arti
   - `09-ethics-review.md` — Ethics review
   - `10-final-review-report.md` — Compiled final report (Markdown)
   - `10-final-review-report.pdf` — Compiled final report (PDF, generated via pandoc)
+- `.agents/skills/review-paper/` — Shared workflow entrypoint
+- `.codex/agents/` — Codex custom agent definitions matching the review roles
 
 ## Workflow
 
@@ -61,8 +63,8 @@ The review team assesses the paper using the gathered context:
 - `@report-compiler` — merges all reviews into `10-final-review-report.md`, then converts to `10-final-review-report.pdf` using pandoc
 
 ## Prerequisites
-- Install [OpenCode](https://opencode.ai): `curl -fsSL https://opencode.ai/install | bash`
-- Configure an LLM provider in OpenCode (run `/connect` in the TUI)
+- Install [OpenCode](https://opencode.ai) or set up [Codex](https://developers.openai.com/codex)
+- Configure an LLM provider in the agent tool you use
 - Install markitdown for paper conversion: `pip install "markitdown[all]"`
 - Install pandoc for PDF report generation: `brew install pandoc` (macOS) or see [pandoc.org](https://pandoc.org/installing.html)
 - Install a LaTeX engine for pandoc PDF output: `brew install --cask mactex` (macOS) or use [Tectonic](https://tectonic-typesetting.github.io/)
@@ -78,10 +80,18 @@ The review team assesses the paper using the gathered context:
 - Use the "re-explore" keyword to force refreshing journal context
 
 ## How to Use
+
+### OpenCode
 1. Place your paper in `papers/` (any format: PDF, DOCX, Markdown, etc.)
 2. Switch to the Editor-in-Chief agent (Tab key)
 3. Say: "Review papers/my-paper.pdf for submission to Nature"
 4. The Editor-in-Chief will create a timestamped report directory, convert the paper if needed, then orchestrate the full pipeline
+
+### Codex
+1. Place your paper in `papers/` (any format: PDF, DOCX, Markdown, etc.)
+2. Start Codex from the repository root
+3. Say: "$review-paper papers/my-paper.pdf for submission to Nature"
+4. Codex will use the shared `.agents/skills/review-paper/SKILL.md` workflow and the custom agents in `.codex/agents/`
 
 ## Cached Context
 Exploration results are cached per journal in `context/<journal-slug>/`. If you're reviewing multiple papers for the same journal, the context is reused. To force a refresh, say "re-explore" to the Editor-in-Chief.

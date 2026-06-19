@@ -1,9 +1,10 @@
 # Agentic Reviewer
 
-> An OpenCode-based agentic framework for academic paper peer review — a team of AI agents explores a target journal, then reviews your paper before submission.
+> An agentic framework for academic paper peer review — a team of AI agents explores a target journal, then reviews your paper before submission. Supports OpenCode and Codex.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![OpenCode](https://img.shields.io/badge/OpenCode-compatible-blue)](https://opencode.ai)
+[![Codex](https://img.shields.io/badge/Codex-compatible-black)](https://developers.openai.com/codex)
 
 ## What It Does
 
@@ -20,10 +21,12 @@ Every review session produces a **timestamped report directory** with all artifa
 
 ### Prerequisites
 
-1. Install [OpenCode](https://opencode.ai):
+1. Install [OpenCode](https://opencode.ai) or set up [Codex](https://developers.openai.com/codex):
    ```bash
+   # OpenCode
    curl -fsSL https://opencode.ai/install | bash
    ```
+   For Codex, follow the official setup guide linked above.
 
 2. Install [markitdown](https://github.com/microsoft/markitdown) for paper conversion:
    ```bash
@@ -37,7 +40,7 @@ Every review session produces a **timestamped report directory** with all artifa
    brew install --cask mactex
    ```
 
-4. Configure an LLM provider in OpenCode (run `/connect` in the TUI).
+4. Configure your LLM provider in the agent tool you use.
 
 ### Run a Review
 
@@ -65,6 +68,20 @@ Every review session produces a **timestamped report directory** with all artifa
    ```
 
 The Editor-in-Chief will orchestrate the full pipeline automatically.
+
+### Run with Codex
+
+1. Start Codex from the repository root:
+   ```bash
+   codex
+   ```
+
+2. Invoke the repo skill:
+   ```text
+   $review-paper papers/my-paper.pdf for submission to Nature
+   ```
+
+Codex uses the shared `.agents/skills/review-paper/SKILL.md` workflow entrypoint and `.codex/agents/*.toml` for Codex-specific specialist reviewer and explorer agents.
 
 ## How It Works
 
@@ -131,7 +148,11 @@ agentic-reviewer/
 ├── LICENSE                     # MIT License
 ├── prompts/                    # Agent prompt files (.txt)
 ├── .opencode/
-│   └── skills/                 # Skill definitions (SKILL.md)
+│   └── skills/                 # OpenCode skill definitions (SKILL.md)
+├── .agents/
+│   └── skills/                 # Shared repo skill definitions (SKILL.md)
+├── .codex/
+│   └── agents/                 # Codex custom agent definitions (.toml)
 ├── papers/                     # Place your paper here (gitignored)
 ├── context/                    # Cached journal context (gitignored)
 └── reports/                    # Timestamped review reports (gitignored)
@@ -151,12 +172,13 @@ agentic-reviewer/
 
 1. Create a prompt file in `prompts/<agent-name>.txt`
 2. Add the agent definition to `opencode.json` under `"agent"`
-3. Create a skill in `.opencode/skills/<skill-name>/SKILL.md`
-4. Add the agent to the Editor-in-Chief's `task` permissions in `opencode.json`
+3. Add a matching Codex agent in `.codex/agents/<agent-name>.toml`
+4. Create or update any related skill in `.opencode/skills/<skill-name>/SKILL.md`
+5. Add the agent to the Editor-in-Chief's `task` permissions in `opencode.json`
 
 ### Changing the Model
 
-Agents use whatever model is globally configured in OpenCode. To use a specific model per agent, add a `"model"` field to the agent config in `opencode.json` (e.g., `"model": "anthropic/claude-sonnet-4-20250514"`).
+Agents use whatever model is globally configured in your agent tool. To use a specific model per OpenCode agent, add a `"model"` field to the agent config in `opencode.json`. To tune a Codex custom agent, edit the matching `.codex/agents/<agent-name>.toml`.
 
 ## Contributing
 
