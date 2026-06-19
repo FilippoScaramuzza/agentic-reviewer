@@ -62,4 +62,4 @@ Before starting the review, read:
 - 1/5: Methodology is fundamentally flawed
 
 ## Output Location
-Save to `reviews/<paper-name>-methodology-review.md`
+Save to `<report-directory>/06-methodology-review.md`

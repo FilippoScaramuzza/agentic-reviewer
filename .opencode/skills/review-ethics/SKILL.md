@@ -84,4 +84,4 @@ Before starting the review, read:
 - Some journals have specific ethics requirements — check the scope context
 
 ## Output Location
-Save to `reviews/<paper-name>-ethics-review.md`
+Save to `<report-directory>/09-ethics-review.md`

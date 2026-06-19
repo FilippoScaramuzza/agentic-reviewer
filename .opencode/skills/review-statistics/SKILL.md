@@ -74,4 +74,4 @@ Note: Statistics review does not typically require journal context, but if the j
 If the paper is primarily qualitative or theoretical (no quantitative analysis), mark the review as N/A and provide a brief explanation instead of ratings.
 
 ## Output Location
-Save to `reviews/<paper-name>-statistics-review.md`
+Save to `<report-directory>/08-statistics-review.md`

@@ -50,4 +50,4 @@ Before starting the review, read:
 - 1/5: Does not fit this venue at all
 
 ## Output Location
-Save to `reviews/<paper-name>-scope-review.md`
+Save to `<report-directory>/05-scope-review.md`

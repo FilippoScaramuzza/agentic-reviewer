@@ -16,12 +16,12 @@ metadata:
 Synthesize all individual reviewer assessments into one unified, comprehensive, actionable review report.
 
 ## Prerequisites
-Before compiling, read ALL individual review files:
-1. `reviews/<paper-name>-scope-review.md`
-2. `reviews/<paper-name>-methodology-review.md`
-3. `reviews/<paper-name>-writing-style-review.md`
-4. `reviews/<paper-name>-statistics-review.md`
-5. `reviews/<paper-name>-ethics-review.md`
+Before compiling, read ALL individual review files from the report directory:
+1. `<report-directory>/05-scope-review.md`
+2. `<report-directory>/06-methodology-review.md`
+3. `<report-directory>/07-writing-style-review.md`
+4. `<report-directory>/08-statistics-review.md`
+5. `<report-directory>/09-ethics-review.md`
 
 If any file is missing, note the gap in the report but compile what is available.
 
@@ -62,4 +62,4 @@ Use the trend icons:
 - ❌ (1-2): Problematic, needs significant work
 
 ## Output Location
-Save to `reviews/<paper-name>-review.md`
+Save to `<report-directory>/10-final-review-report.md`
