@@ -31,6 +31,11 @@ If any file is missing, note the gap in the report but compile what is available
 - Distinguish between blocking issues (must fix) and improvements (should fix)
 - Consider the journal's typical threshold when making recommendations
 
+### Be Fair
+- Highlight strengths as well as weaknesses
+- Don't let one weak dimension dominate the entire assessment
+- Consider the overall balance of issues
+
 ### Determining the Recommendation
 - **ACCEPT**: All dimensions ≥ 4/5, no blocking issues
 - **REVISE (MINOR)**: Most dimensions ≥ 4/5, minor issues addressable in revision

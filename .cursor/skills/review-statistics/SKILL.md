@@ -34,20 +34,25 @@ Before starting, read:
 
 ### Multiple Comparisons
 - [ ] Are multiple comparison corrections applied where needed (Bonferroni, FDR, etc.)?
+- [ ] Is the family-wise error rate controlled?
 - [ ] Are pre-registered analyses distinguished from post-hoc analyses?
 
 ### Data Presentation
 - [ ] Are results clearly presented in tables and figures?
-- [ ] Are standard deviations (not just means) reported?
-- [ ] Are exact p-values reported rather than just thresholds?
+- [ ] Is there redundancy between text, tables, and figures?
+- [ ] Are standard deviations, not just means, reported?
+- [ ] Are exact p-values reported rather than just significance thresholds?
 
 ### Reproducibility
 - [ ] Is analysis code available or described in sufficient detail?
 - [ ] Are data availability statements included?
+- [ ] Could the analysis be replicated from the information provided?
 
 ### Red Flags
 - [ ] p-hacking indicators (optional stopping, selective reporting)
 - [ ] HARKing (Hypothesizing After Results are Known)
+- [ ] Data dredging or fishing expeditions
+- [ ] Selective reporting of analyses
 - [ ] Overinterpretation of marginal results
 
 ## Rating Scale

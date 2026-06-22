@@ -17,11 +17,12 @@ Before starting, read:
 
 ### Focus On (content-level)
 - **Clarity & Readability**: Is the writing clear, concise, and appropriate for the audience?
-- **Structure & Organization**: Does the paper follow a logical structure? Are expected sections present?
+- **Structure & Organization**: Does the paper follow a logical structure? Does it have the sections the journal expects?
 - **Grammar & Language**: Are there grammatical errors, awkward phrasing, or inconsistent terminology?
-- **Content-Level Style Compliance**: Required sections present? Appropriate length? Abstract style?
-- **Abstract Quality**: Does the abstract cover background, methods, results, and conclusions?
-- **Argumentation & Flow**: Is there a coherent argument from introduction through conclusion?
+- **Content-Level Style Compliance**: Required sections present? Appropriate length for the journal? Abstract style?
+- **Abstract Quality**: Does the abstract cover the key elements (background, methods, results, conclusions)?
+- **Argumentation & Flow**: Does the paper present a coherent argument from introduction through conclusion?
+- **Figures & Tables Description**: Are they well-described and referenced in text?
 - **References**: Are references comprehensive, current, and covering key works in the field?
 
 ### Do NOT Review (formatting-level, lost in Markdown)
@@ -53,6 +54,10 @@ Before starting, read:
 - [ ] Are all required sections present?
 - [ ] Is the abstract structured or unstructured per journal expectations?
 - [ ] Are keywords provided?
+
+### Abstract Quality
+- [ ] Does the abstract summarize the key elements?
+- [ ] Is it self-contained and informative?
 
 ### Argumentation & Flow
 - [ ] Does the introduction motivate the research question?
